@@ -13,9 +13,10 @@ import {Product} from "../../interfaces/product";
 
 @Component({
   selector: 'app-product',
-  templateUrl: './product.component.html'
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements  OnInit, DoCheck, OnDestroy {
+export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 
   @Input() product: Product;
   @Output() productClicked: EventEmitter<any> = new EventEmitter();
