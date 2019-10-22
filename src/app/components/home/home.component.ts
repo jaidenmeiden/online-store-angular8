@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  mySwiper: Swiper;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this.mySwiper = new Swiper('.swiper-container');
   }
 
 }
