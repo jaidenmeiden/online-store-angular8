@@ -17,6 +17,12 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     FooterComponent
   ],
+  exports: [
+    ExponentialPipe,
+    HighlightDirective,
+    HeaderComponent,
+    FooterComponent
+  ],
   imports: [
     CommonModule
   ]
