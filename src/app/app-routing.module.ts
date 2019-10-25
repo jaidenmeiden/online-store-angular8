@@ -7,6 +7,7 @@ import {ProductDetailComponent} from "./components/product-detail/product-detail
 import {ContactComponent} from './components/contact/contact.component';
 import {DemoComponent} from "./components/demo/demo.component";
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
+import {AdminGuard} from "./guards/admin.guard";
 
 const routes: Routes = [
   {
@@ -24,15 +25,18 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent
+        component: ProductsComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'products/:id',
-        component: ProductDetailComponent
+        component: ProductDetailComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'contact',
-        component: ContactComponent
+        component: ContactComponent,
+        canActivate: [AdminGuard]
       }
     ]
   },
