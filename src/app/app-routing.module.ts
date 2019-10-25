@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {LayoutComponent} from "./components/layout/layout.component";
-import {HomeComponent} from './components/home/home.component';
 import {ProductsComponent} from './components/products/products.component';
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 import {ContactComponent} from './components/contact/contact.component';
@@ -21,7 +20,7 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        component: HomeComponent
+        loadChildren: () => import('./home/home.module')
       },
       {
         path: 'products',
