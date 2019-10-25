@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
-import { ExponentialPipe } from './pipes/exponential.pipe';
-import { HighlightDirective } from './directives/highlight.directive';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -20,8 +18,6 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     AppComponent,
     ProductComponent,
     CartComponent,
-    ExponentialPipe,
-    HighlightDirective,
     LayoutComponent,
     ProductsComponent,
     ContactComponent,
