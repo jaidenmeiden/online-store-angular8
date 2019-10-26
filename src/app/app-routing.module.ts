@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 import {LayoutComponent} from "./components/layout/layout.component";
-import {ProductsComponent} from './components/products/products.component';
-import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 import {ContactComponent} from './components/contact/contact.component';
 import {DemoComponent} from "./components/demo/demo.component";
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
@@ -25,12 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent,
-        canActivate: [AdminGuard]
-      },
-      {
-        path: 'products/:id',
-        component: ProductDetailComponent,
+        loadChildren: () => import('./product/product.module').then(m => m.ProductModule),
         canActivate: [AdminGuard]
       },
       {
