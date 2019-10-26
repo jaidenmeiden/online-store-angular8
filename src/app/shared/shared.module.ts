@@ -19,6 +19,7 @@ import { MaterialModule } from './../material/material.module';
     FooterComponent
   ],
   exports: [
+    MaterialModule,
     ExponentialPipe,
     HighlightDirective,
     HeaderComponent,
