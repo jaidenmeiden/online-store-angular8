@@ -46,4 +46,24 @@ export class ProductDetailComponent implements OnInit {
       });
   }
 
+  updateProduct() {
+    // La instrución 'Partial' le dice a la instrución que solo debe modificar lo que se envie,
+    // si no se utiliza, se deben enviar todos los campos de 'Product'
+    const updateProduct: Partial<Product> = {
+      price: 555555,
+      description: 'edicion titulo'
+    };
+    this.productsService.updateProduct('222', updateProduct)
+      .subscribe(product => {
+        console.log(product);
+      });
+  }
+
+  deleteProduct() {
+    this.productsService.deleteProduct('222')
+      .subscribe(rta => {
+        console.log(rta);
+      });
+  }
+
 }

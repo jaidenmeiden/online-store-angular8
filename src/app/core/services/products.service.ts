@@ -23,4 +23,14 @@ export class ProductsService {
   createProduct(product: Product) {
     return this.http.post(`${environment.url_api}/products`, product);
   }
+
+  // La instrución 'Partial' le dice a la instrución que solo debe modificar lo que se envie,
+  // si no se utiliza, se deben enviar todos los campos de 'Product'
+  updateProduct(id: string, changes: Partial<Product>) {
+    return this.http.put(`${environment.url_api}/products/${id}`, changes);
+  }
+
+  deleteProduct(id: string) {
+    return this.http.delete(`${environment.url_api}/products/${id}`);
+  }
 }
