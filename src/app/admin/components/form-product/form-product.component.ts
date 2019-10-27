@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import {ProductsService} from '../../../core/services/products.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class FormProductComponent implements OnInit {
   }
 
   saveProduct(event: Event) {
-    event.preventDefault();
+    event.preventDefault(); // Quita la opción por defecto de recargar la pagina
     if (this.form.valid) {
       const product = this.form.value;
       this.productsService.createProduct(product)
