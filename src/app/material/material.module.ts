@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -21,6 +22,7 @@ import { MatMenuModule } from '@angular/material/menu';
   declarations: [],
   imports: [
     CommonModule,
+    LayoutModule,
     MatToolbarModule,
     MatIconModule,
     MatBadgeModule,
@@ -38,6 +40,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMenuModule
   ],
   exports: [
+    LayoutModule,
     MatToolbarModule,
     MatIconModule,
     MatBadgeModule,
