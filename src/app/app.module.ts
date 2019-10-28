@@ -1,17 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
-// Sirve para almacenar coponentes, directivas, pipes
-import {SharedModule} from './shared/shared.module';
-// Sirve para almacenar servicios
-import {CoreModule} from './core/core.module';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './components/layout/layout.component';
+
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+
+import {LayoutComponent} from './components/layout/layout.component';
+
+import { environment } from './../environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { LayoutComponent } from './components/layout/layout.component';
     SharedModule,
     CoreModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
