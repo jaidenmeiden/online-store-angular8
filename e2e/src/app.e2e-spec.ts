@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('platzi-store-angular8 app is running!');
+    expect(page.getTitleText()).toEqual('online-store-angular8 app is running!');
   });
 
   afterEach(async () => {
