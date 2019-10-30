@@ -15,7 +15,7 @@ import { CoreModule } from './core/core.module';
 
 import {LayoutComponent} from './components/layout/layout.component';
 
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
