@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/online-store-angular8",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
