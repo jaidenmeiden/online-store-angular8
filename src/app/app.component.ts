@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 
 import { filter } from 'rxjs/operators';
+import Swiper from "swiper";
 
 declare var gtag;
 
@@ -13,7 +15,8 @@ declare var gtag;
 export class AppComponent {
 
   constructor(
-    private router: Router
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     const navEndEvents$ = this.router.events
       .pipe(
@@ -22,9 +25,11 @@ export class AppComponent {
 
     navEndEvents$.subscribe((event: NavigationEnd) => {
       //console.log("Entro: " + event.urlAfterRedirects);
-      gtag('config', 'UA-149890792-1', {
-        page_path: event.urlAfterRedirects
-      });
+      if (isPlatformBrowser(this.platformId)) {
+        gtag('config', 'UA-149890792-1', {
+          page_path: event.urlAfterRedirects
+        });
+      }
     });
   }
 }
