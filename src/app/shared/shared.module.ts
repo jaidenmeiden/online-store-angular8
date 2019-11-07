@@ -21,7 +21,6 @@ import { MaterialModule } from '../material/material.module';
     CartComponent
   ],
   exports: [
-    MaterialModule,
     ExponentialPipe,
     HighlightDirective,
     HeaderComponent,
