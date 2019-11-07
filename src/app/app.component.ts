@@ -21,6 +21,7 @@ export class AppComponent {
       );
 
     navEndEvents$.subscribe((event: NavigationEnd) => {
+      //console.log("Entro: " + event.urlAfterRedirects);
       gtag('config', 'UA-149890792-1', {
         page_path: event.urlAfterRedirects
       });
