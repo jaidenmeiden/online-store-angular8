@@ -11,7 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CartComponent } from './components/cart/cart.component';
 
 import { MaterialModule } from '../material/material.module';
-import { QuicklinkModule } from 'ngx-quicklink';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { QuicklinkModule } from 'ngx-quicklink';
     CommonModule,
     RouterModule,
     MaterialModule,
-    ReactiveFormsModule,
-    QuicklinkModule
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

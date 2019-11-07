@@ -15,7 +15,6 @@ export class FooterComponent implements OnInit {
       Validators.required,
       Validators.email
     ]);
-    // Valida cualquier cambio que se realiza en el campo
     // this.emailField.valueChanges
     // .subscribe(value => {
     //   console.log(value);

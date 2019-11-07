@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductsService} from '../../../core/services/products.service';
+
+import { ProductsService } from '../../../core/services/products.service';
 
 @Component({
   selector: 'app-products-list',
@@ -21,16 +22,16 @@ export class ProductsListComponent implements OnInit {
 
   fetchProducts() {
     this.productsService.getAllProducts()
-      .subscribe(products => {
-        this.products = products;
-      });
+    .subscribe(products => {
+      this.products = products;
+    });
   }
 
   deleteProduct(id: string) {
     this.productsService.deleteProduct(id)
-      .subscribe(respuesta => {
-        this.fetchProducts();
-      });
+    .subscribe(rta => {
+      this.fetchProducts();
+    });
   }
 
 }

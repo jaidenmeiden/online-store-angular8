@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {CartService} from '../../../core/services/cart.service';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+
+import { map } from 'rxjs/operators';
+
+import { CartService } from '../../../core/services/cart.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
-
 })
 export class HeaderComponent implements OnInit {
 

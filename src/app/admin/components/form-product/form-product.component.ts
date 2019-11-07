@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {AngularFireStorage} from '@angular/fire/storage';
-import {Observable} from 'rxjs';
-import {finalize} from 'rxjs/operators';
+import { AngularFireStorage } from '@angular/fire/storage';
 
-import {ProductsService} from '../../../core/services/products.service';
-import {MyValidators} from '../../../utils/my-validators';
+import { finalize } from 'rxjs/operators';
+
+import {MyValidators} from "../../../utils/validators";
+
+import { ProductsService } from '../../../core/services/products.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-product',
@@ -35,30 +37,30 @@ export class FormProductComponent implements OnInit {
     if (this.form.valid) {
       const product = this.form.value;
       this.productsService.createProduct(product)
-        .subscribe((newProduct) => {
-          console.log(newProduct);
-          this.router.navigate(['./admin/products']);
-        });
+      .subscribe((newProduct) => {
+        console.log(newProduct);
+        this.router.navigate(['./admin/products']);
+      });
     }
   }
 
   uploadFile(event) {
     const file = event.target.files[0];
-    const path = 'image.png';
-    const fileRef = this.storage.ref(path);
-    const task = this.storage.upload(path, file);
+    const name = 'image.png';
+    const fileRef = this.storage.ref(name);
+    const task = this.storage.upload(name, file);
 
     task.snapshotChanges()
-      .pipe(
-        finalize(() => {
-          this.image$ = fileRef.getDownloadURL();
-          this.image$.subscribe(url => {
-            console.log(url);
-            this.form.get('image').setValue(url);
-          });
-        })
-      )
-      .subscribe();
+    .pipe(
+      finalize(() => {
+        this.image$ = fileRef.getDownloadURL();
+        this.image$.subscribe(url => {
+          console.log(url);
+          this.form.get('image').setValue(url);
+        });
+      })
+    )
+    .subscribe();
   }
 
   private buildForm() {

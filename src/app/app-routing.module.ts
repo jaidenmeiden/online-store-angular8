@@ -1,44 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import {LayoutComponent} from './components/layout/layout.component';
-import {AdminGuard} from './guards/admin.guard';
-import {PreloadService} from "./core/services/preload.service";
-import {QuicklinkStrategy} from "ngx-quicklink";
+//import { PreloadService } from './core/services/preload.service';
+
+//import { QuicklinkStrategy } from 'ngx-quicklink';
+import {AdminGuard} from "./guards/admin.guard";
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full',
-      },
-      {
-        path: 'home',
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
-        data: { preload: true }
-      },
-      {
-        path: 'products',
-        loadChildren: () => import('./product/product.module').then(m => m.ProductModule),
-        data: { preload: true }
-      },
-      {
-        path: 'contact',
-        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
-      },
-      {
-        path: 'order',
-        loadChildren: () => import('./order/order.module').then(m => m.OrderModule)
-      },
-      {
-        path: 'demo',
-        loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule)
-      },
-    ]
+    loadChildren: () => import('./website/website.module').then(m => m.WebsiteModule)
   },
   {
     path: 'admin',
@@ -56,11 +27,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
+  //imports: [RouterModule.forRoot(routes, {
     //preloadingStrategy: PreloadAllModules // Precarca todos los modulos
     //preloadingStrategy: PreloadService // Implementa nuestra propia estrategía de precarga
-    preloadingStrategy: QuicklinkStrategy // Implementa nuestra estrategía de Quick Link
-  })],
+    //preloadingStrategy: QuicklinkStrategy // Implementa nuestra estrategía de Quick Link
+  //})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
